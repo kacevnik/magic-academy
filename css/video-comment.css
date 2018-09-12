@@ -1,0 +1,132 @@
+.reviews-boxes{width:100%;max-width:953px;margin:0 auto;padding:45px 2px 21px;-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box;}
+.holder{width:100%;max-width:980px;margin:0 auto;padding:0 10px;-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box;}
+#reviews-list{margin:0;padding:0;list-style:none;}
+#reviews-list li{display:none;}
+.reviews-box{position:relative;display:table;width:auto;margin:0 0 80px;border:1px solid #a6a398;-webkit-border-radius:4px 4px 3px 3px;-moz-border-radius:4px 4px 3px 3px;border-radius:4px 4px 3px 3px;background:#c3c7c7 url(../images/bg-reviews-box.png) no-repeat;background-size:100% 100%;-webkit-box-shadow:0 15px 15px -10px rgba(0, 0, 0, 0.5);-moz-box-shadow:0 0 2px rgba(0, 0, 0, 0.3);-moz-box-shadow:0 15px 15px -10px rgba(0, 0, 0, 0.5);box-shadow:0 0 2px rgba(0, 0, 0, 0.3);box-shadow:0 15px 15px -10px rgba(0, 0, 0, 0.5);behavior:url(js/pie.htc);}
+.reviews-box .title-box{position:relative;display:table;width:100%;margin:-10px -1px 47px;padding:16px 1px 14px;-webkit-border-radius:5px 5px 0 0;-moz-border-radius:5px 5px 0 0;border-radius:5px 5px 0 0;background:#ffd515 url(../images/bg-title-pb.png) repeat-x;-webkit-box-shadow:0 2px 3px #555;box-shadow:0 2px 3px #555;behavior:url(js/pie.htc);}
+.reviews-box .title-box h2{margin:0 0 0 20px;font:italic 23px/28px 'Trebuchet MS', Arial, Verdana, sans-serif;color:#000;text-align:left;letter-spacing:-1px;}
+.reviews-boxes h2{margin:0 0 82px;font:48px/59px Lobster, 'Comic Sans MS', cursive;color:#c31717;text-align:center;}
+.reviews-box .content-box{position:relative;z-index:7;display:table;width:801px;font:15px/16px 'Trebuchet MS', Arial, Verdana, sans-serif;}
+.reviews-box .img-box{display:inline;float:right;width:343px;margin:-123px -1px 0 -38px;}
+.slideshow{position:relative;z-index:7;width:293px;margin:0 24px 0 26px;-webkit-box-shadow:0 0 5px #555;box-shadow:0 0 5px #555;behavior:url(js/pie.htc);}
+.reviews-box .name-box{position:relative;z-index:8;width:343px;margin:-20px -1px -59px;padding:12px 1px 17px;-webkit-border-radius:4px 4px 3px 1px;-moz-border-radius:4px 4px 3px 1px;border-radius:4px 4px 3px 1px;background:#ffd515 url(../images/bg-title-pb.png) repeat-x;-webkit-box-shadow:0 2px 3px #777;box-shadow:0 2px 3px #777;behavior:url(js/pie.htc);}
+.reviews-box .name-box strong{display:block;font:italic bold 25px/29px 'Trebuchet MS', Arial, Verdana, sans-serif;color:#000;text-align:center;}
+.reviews-box .cb-holder{display:inline;float:left;width:425px;padding:0 36px;}
+.reviews-box p{margin:0 0 16px;text-indent:14px;}
+.reviews-box .footer-box{position:relative;z-index:5;display:table;width:100%;margin:0 -1px 1px;padding:10px 0;border:1px solid #bbb;-webkit-border-radius:3px 3px 3px 2px;-moz-border-radius:3px 3px 3px 2px;border-radius:3px 3px 3px 2px;background:url(../images/bg-f-box.png);-webkit-box-shadow:0 2px 3px #777;box-shadow:0 2px 3px #777;behavior:url(js/pie.htc);}
+.reviews-box .footer-box .email{float:left;margin:0 0 0 37px;padding:6px 0 9px 42px;background:url(../images/bg-mail.png) no-repeat 0 6px;font:italic 20px/22px 'Trebuchet MS', Arial, Verdana, sans-serif;color:#0006ff;text-decoration:none;}
+.slideshow img{width:100%;}
+.btn-more{display:block;cursor:pointer;height:27px;padding:13px;-webkit-border-radius:4px;-moz-border-radius:4px;border-radius:4px;-webkit-transition:all 0.3s 0s;-moz-transition:all 0.3s 0s;transition:all 0.3s 0s;border:3px solid #0006ff;font:italic 20px/27px "Trebuchet MS", Arial, Verdana, sans-serif;color:#0006ff;text-align:center;text-decoration:underline;clear:both;margin:-45px 0 45px;}
+@media screen and (max-width:959px){.reviews-box .name-box strong {
+	background: #FFE626;
+	width: 200px;
+	margin: 0 auto;
+}.video-box-edite .vk-video{margin-left: 37px !important;}.reviews-box .content-box{position:relative;z-index:7;display:table;width:100%;margin:0 auto;font:14px/16px 'Trebuchet MS', Arial, Verdana, sans-serif;}
+.reviews-box .img-box{display:block;width:100%;margin:0;text-align:center;}
+.reviews-box .img-box .slideshow{position:relative;display:block;margin:0 auto;-webkit-box-shadow:0 0 5px #555;box-shadow:0 0 5px #555;behavior:url(js/pie.htc);}
+.reviews-box .cb-holder{float:left;width:96%;padding:0 2%;}
+.reviews-box .name-box strong{font:italic bold 16px/20px 'Trebuchet MS', Arial, Verdana, sans-serif;}
+.reviews-box .name-box{width:100%;margin:0 -1px;padding:10px 1px 14px;-webkit-border-radius:none;-moz-border-radius:none;border-radius:none;background:none;-webkit-box-shadow:none;box-shadow:none;}
+}
+@media screen and (max-width:501px){.btn-more{font:italic 14px/27px "Trebuchet MS", Arial, Verdana, sans-serif;}
+}
+.mfp-fade.mfp-bg{opacity:0;-webkit-transition:all 0.15s ease-out;-moz-transition:all 0.15s ease-out;transition:all 0.15s ease-out;}
+.mfp-fade.mfp-bg.mfp-ready{opacity:0.5;}
+.mfp-fade.mfp-bg.mfp-removing{opacity:0;}
+.mfp-fade.mfp-wrap .mfp-content{opacity:0;-webkit-transition:all 0.15s ease-out;-moz-transition:all 0.15s ease-out;transition:all 0.15s ease-out;}
+.mfp-fade.mfp-wrap.mfp-ready .mfp-content{opacity:1;}
+.mfp-fade.mfp-wrap.mfp-removing .mfp-content{opacity:0;}
+.mfp-bg{background-color:rgb(88, 6, 138);}
+.tv-holder .slidlist img{position:absolute;opacity:0;filter:alpha(Opacity=0);}
+.tv-holder .slidlist img.one{opacity:1;filter:alpha(Opacity=100);}
+.white-popup-block{background:#FFF;padding:20px 30px;text-align:left;max-width:650px;margin:40px auto;position:relative;}
+.btn-more:hover{background:#0006ff;color:#fff;}
+.video-dt{cursor:pointer;}
+.btn-call .phone_alloka{color:#00f !important;}
+.video-hbox{margin-bottom:0 !important;}
+.h-box{margin-bottom:0 !important;}
+#hid, #hid2, #sA2, #sA3, #sA4{opacity:0;}
+.video-recall .img-box{float:left;}
+.video-recall .cb-holder{float:right;}
+.video-box-edite > div > a{margin-right:20px !important;}
+.video-box-edite .img-box{margin:-40px -1px 0 2px;}
+.video-box-edite .cb-holder{width:300px;}
+.video-box-edite .slideshow{width:430px;margin:0 0 23px 0;}
+.video-box-edite .name-box{width:430px;}
+.video-box-edite .email{background:url(../images/vk.png) no-repeat 0 2px !important;}
+@media screen and (max-width:959px){
+	.reviews-box .footer-box .email-video {
+		margin-left: 37px !important;
+	}
+	.video-box-edite .footer-box{
+	padding: 10px 0 !important;
+}
+	.video-box-edite .name-box{width:100%;}
+.video-box-edite .cb-holder{width:100%;}
+.video-box-edite .cb-holder > p{margin-left:30px !important;}
+.video-box-edite > div > a{float:left !important;}
+}
+@media screen and (max-width:480px){.video-box-edite .slideshow{width:100% !important;}
+}
+.video-box-edite .vk-video {
+	  margin: 0 0 0 500px;
+    padding: 6px 0 9px 42px;
+    font: italic 20px/22px 'Trebuchet MS', Arial, Verdana, sans-serif;
+    background: url(../images/vk.png) no-repeat 0 2px !important;
+    color: #0006ff;
+    text-decoration: none;
+}
+.video-box-edite .footer-box{
+	padding: 18px 0;
+}
+.reviews-box .vk {
+	background: url(../images/vk.png) no-repeat 0 2px !important;
+}
+.reviews-box .footer-box .email-video {
+    float: left;
+    margin: 0 0 0 500px;
+    padding: 6px 0 9px 42px;
+    background: url(../images/bg-mail.png) no-repeat 0 6px;
+    font: italic 20px/22px 'Trebuchet MS', Arial, Verdana, sans-serif;
+    color: #0006ff;
+    text-decoration: none;
+}
+.video-mail .footer-box {
+	padding: 10px 0;
+}
+@media screen and (max-width:550px){
+	.title-edite h1 {
+		font: 30px/40px "PFDinTextCompProRegular", Arial, Verdana, sans-serif;
+	}
+	.illusionist__picture {
+		display: none;
+	}
+	.video-boxes .video-box {
+		max-width: 550px;
+		margin: 10px 0;
+		width: 50%;
+	}
+	 .video-boxes .video-box.rtrtt {
+		position: relative;
+    left: 50%;
+    transform: translate(-50%);
+	}
+}
+.title-edite h1 {
+	font: 80px/40px "PFDinTextCompProRegular", Arial, Verdana, sans-serif;
+	line-height: 71px;
+}
+@media screen and (max-width:900px){
+	.title-edite h1 {
+		font: 50px/40px "PFDinTextCompProRegular", Arial, Verdana, sans-serif;
+	}
+}
+#main-video1 {
+	width: 100%;
+}
+.video-sm {
+	display: none;
+}
+.video-top {
+	display: none;
+}

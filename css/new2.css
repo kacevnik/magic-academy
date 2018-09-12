@@ -1,0 +1,59 @@
+/* mars */
+.ind-box .ind-box-text-edit {
+	width: 543px;
+}
+.fl-box-edit {
+	height: 100px !important;
+	background-color: #ffffff !important;
+	border-radius: none !important;
+	box-shadow: none !important;
+	float: none !important;
+	margin-bottom: 0 !important;
+}
+.title-edite {
+	background: #FFE340;
+	font: 38px/44px EuropeCondRegular, Arial, Verdana, sans-serif;
+	line-height: 45px;
+	width: auto;
+	text-align: center;
+	display: block;
+	margin: 5px 0;
+}
+.text-stock-edite {
+	display: block;
+	text-align: center;
+	font: 38px/44px EuropeCondRegular, Arial, Verdana, sans-serif;
+} .text-stock-edite > span {
+	font: 21pt/26pt EuropeCondRegular, Arial, Verdana, sans-serif;
+}
+.top-bar-holder .phone-edite {
+	font: 32px/30px MyriadProCondRegular, Arial, Verdana, sans-serif !important;
+	display: block !important;
+	color: #676767;
+}
+.fixed-position .phone-edite > span.phone_alloka {
+	font: 18px/18px "Trebuchet MS", Arial, Verdana, sans-serif !important;
+	color: #676767 !important;
+}
+.dn-edit {
+	display: none !important;
+}
+@media only screen and (max-width : 768px) {
+	.title-edite {
+		font: 33px/44px EuropeCondRegular, Arial, Verdana, sans-serif;
+	}
+}
+@media only screen and (max-width : 465px) {
+	.title-edite {
+		font: 21px/44px EuropeCondRegular, Arial, Verdana, sans-serif;
+	}
+}
+.heading-edite {
+	top: -20px !important;
+}
+.comment-edite {
+	margin-top: 49px !important;
+}
+.fixed-position .menu-edite {
+	padding-top: 0 !important;
+}
