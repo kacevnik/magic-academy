@@ -108,6 +108,111 @@
 /></noscript>
 <!-- /Facebook Pixel Code -->
 
+<!-- JavaScript function show block runtime -->
+<script type="text/javascript">
+	/**
+	*timeZone(int) - Часовой пояс (Москва 3)
+	*deyWeekShow (array) - Дни недели в каторые должен показываться блок (Пн - 1, Вт - 2 .... Вс - 0)
+	*timeStart (string) - Время с которого показывать блок Например 12:33
+	*timeStop (string) - Время до которого показывать блок Например 12:33
+	*block (string) - Класс элемента, каторый следует показать
+	*/
+	var timeShowBlock = function(timeZone, deyWeekShow, timeStart, timeStop, block){
+		var time = new Date(Date.now());
+		var offset = time.getTimezoneOffset()
+		var h = time.getTime();
+		var microUTC = h + offset * 60 * 1000;
+		var newTime = new Date(microUTC+ timeZone * 3600 * 1000);
+		var day = newTime.getDay();
+		var hour = newTime.getHours();
+		var min = newTime.getMinutes();
+		if(min < 10){
+			min = '0' + min;
+		}
+		var metka = ((hour + '') + (min + '')) * 1;
+		var timeStart = timeStart.split(':');
+		var timeStop = timeStop.split(':');
+		var start = ((timeStart[0] + '') + (timeStart[1] + '')) * 1;
+		var stop = ((timeStop[0] + '') + (timeStop[1] + '')) * 1;
+		var elem = document.getElementById(block);
+		if(deyWeekShow.length > 1){
+			for(var i=0; i<deyWeekShow.length; i++){
+		        if(day == deyWeekShow[i]){
+		        	if(i == 0){
+		        		if(metka >= start){
+		        			elem.style.display = "block";
+		        		}
+		        	}else if(i == deyWeekShow.length - 1){
+		        		if(metka <= stop){
+		        			elem.style.display = "block";
+		        		}
+	        		}else{
+						elem.style.display = "block";
+	        		}
+		        }
+		    }
+		}
+		if(deyWeekShow.length == 1){
+			for(var i=0; i<deyWeekShow.length; i++){
+		        if(day == deyWeekShow[i]){
+		        	if(metka >= start && metka <= stop){
+		        		elem.style.display = "block";
+		        	}
+		        }
+		    }
+		}
+	}
+
+
+	function getTimeRemaining(endtime){
+		var t = Date.parse(endtime) - Date.parse(new Date());
+		var seconds = Math.floor( (t/1000) % 60 );
+		var minutes = Math.floor( (t/1000/60) % 60 );
+		var hours = Math.floor( (t/(1000*60*60)) % 24 );
+		var days = Math.floor( t/(1000*60*60*24) );
+		return {
+			'total': t,
+			'days': days,
+			'hours': hours,
+			'minutes': minutes,
+			'seconds': seconds
+		};
+	}
+
+	date = new Date();
+	m = new Date();
+	if(date.getDay()){m.setDate(date.getDate() + 4 - date.getDay())} else {m.setDate(date.getDate() + 1)}
+	console.log(m);
+	var ss = new Date(m);
+	ss.setHours(23, 59, 0,0);
+	console.log(ss);
+
+  	var timerId = setInterval(function() {
+  		var res = getTimeRemaining(ss);
+  		if(res.hours == 0 && res.days == 1){res.hours = 24;}
+  		$('.show_timer').html('(осталось: '+res.hours+' часов '+res.minutes+' мин. '+res.seconds+' сек.)');
+
+	}, 1000);
+
+	window.onload = function() {
+    	timeShowBlock(3 , [3], '3:00', '19:00', 'block_1');
+    	timeShowBlock(3 , [3], '19:00', '23:00', 'block_2');
+		timeShowBlock(3 , [3,4], '20:30', '23:59', 'block_3');
+		timeShowBlock(3 , [5,6,0,1,2,3], '00:00', '20:29', 'bottom_block_2');
+		timeShowBlock(3 , [3,4], '20:30', '23:59', 'bottom_block_1');
+		timeShowBlock(3 , [5,6,0,1,2,3], '00:00', '20:29', 'top_block_1');
+		timeShowBlock(3 , [3,4], '20:30', '23:59', 'top_block_2');
+  	};
+
+
+
+</script>
+<style type="text/css">
+	.show_block{
+		display: none;
+	}
+</style>
+<!-- /JavaScript function show block runtime -->
 
 <!-- JUSITCLICK -->
 <script type="text/javascript">
@@ -166,15 +271,17 @@
 				<div class="fl-box-holder fl-box-holder2">
 				
 <!-- ВРЕМЕННЫЙ БЛОК - РЕГИСТРАЦИЯ НА ВЕБИНАР СРЕДА 03:00-19:00 -->
-				
-				<span class="title-edite">Сегодня в 20:00 вебинар по Фокусам! <u>Бесплатно</u>!</span>
-								<span class="title-edite">Запишись и мы пришлем тебе ссылку в 20:00 (по Москве):</span>
 
+
+<div class="show_block" id="block_1">
+				<span class="title-edite">Сегодня в 20:00 вебинар по Фокусам! <u>Бесплатно</u>!</span>
+				<span class="title-edite">Запишись и мы пришлем тебе ссылку в 20:00 (по Москве):</span>
 
 
 <div class="jc_subblock_0 jc_subblocktexture_0" id="subscr-block-9324">
 <form action="https://akademia-rus.justclick.ru/subscribe/process/?rid[0]=1536699182.2592510343&doneurl=http%3A%2F%2F%D1%84%D0%BE%D0%BA%D1%83%D1%81%D1%8B.%D0%B0%D0%BA%D0%B0%D0%B4%D0%B5%D0%BC%D0%B8%D1%8F.%D1%80%D1%83%D1%81%2Factivate.html&quick=1&" method="post" data-hash="Zm9ybWlkPTkzMjQmdW5hbWU9ZmFsc2UmbWlkZGxlbmFtZT1mYWxzZSZsYXN0bmFtZT1mYWxzZSZlbWFpbD10cnVlJnBob25lPXRydWUmY2l0eT1mYWxzZQ==" id="subscr-form-9324" onsubmit="if (navigator.userAgent.match(/(iPod|iPhone|iPad)/i)) this.removeAttribute('target'); return jc_chkscrfrm(this, true, false, false, false, false, false, true, true, true, true, false, false, [], [], [])"><style type="text/css">@import url('//akademia-rus.justclick.ru/media/css/page_ext.css');</style>
-<style type="text/css">#subscr-block-9324 {
+<style type="text/css">
+#subscr-block-9324 {
 	width:301px;
 	margin:0 auto;
 	padding:25px;
@@ -266,31 +373,34 @@
 <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
 </form>
 </div>
-
-
+</div>
 
 <!-- / ВРЕМЕННЫЙ БЛОК - РЕГИСТРАЦИЯ НА ВЕБИНАР СРЕДА 03:00-19:00 -->
 
 
 <!-- ВРЕМЕННЫЙ БЛОК - АКЦИЯ СРЕДА 19:00 - СРЕДА 22:00 -->
 
+							<div class="show_block" id="block_2">
 							<span class="title-edite">Вебинар по Фокусам! Начнется в 20:00 по Москве:</span>
 
 									<div align="center">
 									<iframe src="https://player.vimeo.com/video/263062516?title=0&byline=0&portrait=0" width="800" height="445" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
 									</div>
-									<br><br>									
+									<br><br>
+							</div>
 <!-- / ВРЕМЕННЫЙ БЛОК - АКЦИЯ  СРЕДА 19:00 - СРЕДА 22:00 -->
 
 
 <!-- ВРЕМЕННЫЙ БЛОК - АКЦИЯ СРЕДА 20:30 - ЧЕТВЕРГ 23:59-->
 
+								<div class="show_block" id="block_3">
 							<span class="title-edite">Курс "Лучшие фокусы мира" с 70% скидкой! Только сегодня.</span>
 
 									<div align="center">
 									<iframe src="https://player.vimeo.com/video/263062516?title=0&byline=0&portrait=0" width="800" height="445" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
 									</div>
-									<br><br>									
+									<br><br>
+								</div>
 <!-- / ВРЕМЕННЫЙ БЛОК - АКЦИЯ СРЕДА 20:30 - ЧЕТВЕРГ 23:59-->
 
 
@@ -396,7 +506,7 @@
 
 					</div>
 					<div class="fl-box-holder-r">
-						<div class="order-dvd">
+						<div class="order-dvd show_block" id="top_block_1">
 							<span class="order-dvd-header" style="font-size: 35px;">Полный курс<br><span style="font-size: 29px;">“<u>Лучшие Фокусы Мира</u>”</span></span>
 							<span class="order-dvd-header" style="font-size: 40px;"></span>
 							<span class="order-dvd-text" style="font-size: 19px;">23 эффектных фокуса<br>от известного иллюзиониста!</span>
@@ -412,6 +522,26 @@
 								<span class="btn-text">8000 р.<br><span>оплата при получении на Почте</span></span>
 							</a>
 						</div>
+
+						<div class="order-dvd show_block" id="top_block_2">
+							<span class="order-dvd-header" style="font-size: 35px;">Акция! Видеокурс:<br><span style="font-size: 29px;">“<u>Лучшие Фокусы Мира</u>”</span></span>
+							<span class="order-dvd-header" style="font-size: 40px;">с 70% скидкой!</span>
+							<div class="ftimer" style="color:#000;"><a href="http://фокусы.академия.рус/box.html#popup" target="_blank" >+Бонус-Фокус в Подарок (нажмите)</a></div>
+														
+							<div class="ftimer show_timer" style="color:#000;">(осталось: 25 часов 20 мин. 15 сек.)</div>
+							<a href="http://akademia-rus.justclick.ru/order/magic_1_online_sale/" target="_blank" class="btn-y-online" onclick="gtag('event', 'zakaz', {'event_category': 'zakaz', 'event_action': 'click'})">
+								<span class="btn-header"><u>ЗАКАЗАТЬ ONLINE</u></span>
+								<img src="images/mous-btn.png" alt="">
+								<span class="btn-text"><s>3000 р.</s> 900 рублей<br><span>курс на Email сразу после оплаты</span></span>
+							</a>
+							<span class="text-inline">- или -</span>
+							<a href="http://akademia-rus.justclick.ru/order/magic_1_dvd/" target="_blank" class="btn-y-online btn-r-online" onclick="gtag('event', 'zakaz', {'event_category': 'zakaz', 'event_action': 'click'})">
+								<span class="btn-header"><u>ЗАКАЗАТЬ DVD</u></span>
+								<img src="images/gift-btn.png" alt="">
+								<span class="btn-text"><s>8000 р.</s> 4900 рублей<br><span>оплата при получении на Почте</span></span>
+							</a>
+						</div>
+
 					</div>
 				</div>
 				<!--<div class="fl-box-holder fl-box-holder2">
@@ -2121,12 +2251,13 @@
 								</div>
 							</div>
 							<div class="fl-box-holder-r">
-								<div class="order-dvd">
+
+						<div class="order-dvd show_block" id="bottom_block_1">
 							<span class="order-dvd-header" style="font-size: 35px;">Акция! Видеокурс:<br><span style="font-size: 29px;">“<u>Лучшие Фокусы Мира</u>”</span></span>
 							<span class="order-dvd-header" style="font-size: 40px;">с 70% скидкой!</span>
-							<div class="ftimer" style="color:#000;"><a href="http://фокусы.академия.рус/box.html#popup">+Бонус-Фокус в Подарок (нажмите)</a></div>
+							<div class="ftimer" style="color:#000;"><a href="http://фокусы.академия.рус/box.html#popup" target="_blank" >+Бонус-Фокус в Подарок (нажмите)</a></div>
 														
-							<div class="ftimer" style="color:#000;">(осталось: 25 часов 20 мин. 15 сек.)</div>
+							<div class="ftimer show_timer" style="color:#000;">(осталось: 25 часов 20 мин. 15 сек.)</div>
 							<a href="http://akademia-rus.justclick.ru/order/magic_1_online_sale/" target="_blank" class="btn-y-online" onclick="gtag('event', 'zakaz', {'event_category': 'zakaz', 'event_action': 'click'})">
 								<span class="btn-header"><u>ЗАКАЗАТЬ ONLINE</u></span>
 								<img src="images/mous-btn.png" alt="">
@@ -2139,6 +2270,24 @@
 								<span class="btn-text"><s>8000 р.</s> 4900 рублей<br><span>оплата при получении на Почте</span></span>
 							</a>
 						</div>
+
+						<div class="order-dvd show_block" id="bottom_block_2">
+							<span class="order-dvd-header" style="font-size: 35px;">Полный курс<br><span style="font-size: 29px;">“<u>Лучшие Фокусы Мира</u>”</span></span>
+							<span class="order-dvd-header" style="font-size: 40px;"></span>
+							<span class="order-dvd-text" style="font-size: 19px;">23 эффектных фокуса<br>от известного иллюзиониста!</span>
+							<a href="http://akademia-rus.justclick.ru/order/magic_1_online_standart/" target="_blank" class="btn-y-online" onclick="gtag('event', 'zakaz', {'event_category': 'zakaz', 'event_action': 'click'})">
+								<span class="btn-header"><u>ЗАКАЗАТЬ ONLINE</u></span>
+								<img src="images/mous-btn.png" alt="">
+								<span class="btn-text">3000 р.<br><span>курс на Email сразу после оплаты</span></span>
+							</a>
+							<span class="text-inline">- или -</span>
+							<a href="http://akademia-rus.justclick.ru/order/magic_1_dvd/" target="_blank" class="btn-y-online btn-r-online" onclick="gtag('event', 'zakaz', {'event_category': 'zakaz', 'event_action': 'click'})">
+								<span class="btn-header"><u>ЗАКАЗАТЬ DVD</u></span>
+								<img src="images/gift-btn.png" alt="">
+								<span class="btn-text">8000 р.<br><span>оплата при получении на Почте</span></span>
+							</a>
+						</div>
+
 							</div>
 							<!--<span class="header-bottom">​В Москве вы можете пройти курсы вживую! Подробнее на странице: <a href="http://макияж.академия.рус" target="_blank">“<u>Курсы в Москве</u>”</a></span>-->
 							<div class="item-box3" id="nas8">
