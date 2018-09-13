@@ -195,15 +195,29 @@
 	}, 1000);
 
 	window.onload = function() {
-    	timeShowBlock(3 , [3], '3:00', '19:00', 'block_1');
+    	timeShowBlock(3 , [3,4], '3:00', '19:00', 'block_1');
     	timeShowBlock(3 , [3], '19:00', '23:00', 'block_2');
 		timeShowBlock(3 , [3,4], '20:30', '23:59', 'block_3');
 		timeShowBlock(3 , [5,6,0,1,2,3], '00:00', '20:29', 'bottom_block_2');
 		timeShowBlock(3 , [3,4], '20:30', '23:59', 'bottom_block_1');
 		timeShowBlock(3 , [5,6,0,1,2,3], '00:00', '20:29', 'top_block_1');
 		timeShowBlock(3 , [3,4], '20:30', '23:59', 'top_block_2');
-  	};
 
+		$('.sms_send').on('click', function(){
+			var phone  = $('.sms_phone').val();
+			var name   = $('.sms_name').val();
+			var email  = $('.sms_email').val();
+	  		$.ajax({
+	  				type: "POST",
+					url: "sms.php",
+					data: {phone: phone, email: email, name: name},
+					success: function(data_return){
+				 		console.log(data_return);
+					}
+				}); 
+	  		return false;
+	  	});
+  	};
 
 
 </script>
@@ -357,16 +371,16 @@
 </style>
 	<input type="hidden" name="hash" value="Zm9ybWlkPTkzMjQmdW5hbWU9ZmFsc2UmbWlkZGxlbmFtZT1mYWxzZSZsYXN0bmFtZT1mYWxzZSZlbWFpbD10cnVlJnBob25lPXRydWUmY2l0eT1mYWxzZQ=="/>	<table align="center" border="0" cellspacing="0" cellpadding="3"><tbody>
 		<tr>
-			<td><input name="lead_name" type="text" placeholder="Введите ваше имя"/></td>
+			<td><input name="lead_name" class="sms_name" type="text" placeholder="Введите ваше имя"/></td>
 		</tr>
 		<tr>
-			<td><input name="lead_phone" type="text" placeholder="Введите ваш телефон"/></td>
+			<td><input name="lead_phone" class="sms_phone" type="text" placeholder="Введите ваш телефон"/></td>
 		</tr>
 		<tr>
-			<td><input name="lead_email" type="text" placeholder="Введите ваш email"/></td>
+			<td><input name="lead_email" class="sms_email" type="text" placeholder="Введите ваш email"/></td>
 		</tr></br><placeholder/>
 		<tr>
-			<td><input type="submit" class="form-submit jc_compile_btn small red-smooth-gradient" style="color:#fff" value="Записаться на Вебинар" /></td>
+			<td><input type="submit" class="form-submit jc_compile_btn small red-smooth-gradient sms_send" style="color:#fff" value="Записаться на Вебинар" /></td>
 		</tr></tbody>
 	</table>
 
