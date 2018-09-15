@@ -1,5 +1,13 @@
 <?php
 
+    $db = mysqli_connect('mysql100.1gb.ru', 'gb_magic_wsms', 'aceacz6ztyu', 'gb_magic_wsms');
+    if(!$db){
+        echo "Ошибка: Невозможно установить соединение с MySQL." . PHP_EOL;
+        echo "Код ошибки errno: " . mysqli_connect_errno() . PHP_EOL;
+        echo "Текст ошибки error: " . mysqli_connect_error() . PHP_EOL;
+    }
+    mysqli_query($db, "SET NAMES 'utf8'");         //Установка кодировки данных из базы.
+
     /* FUNCTIONS */
 
     function getPhone($phone, $charts){
@@ -18,6 +26,7 @@
         }
     }
 
+
     if($_POST['phone']){$phone   = htmlspecialchars($_POST['phone']);}
     if($_POST['name']){$name     = htmlspecialchars($_POST['name']);}
     if($_POST['email']){$email   = htmlspecialchars($_POST['email']);}
@@ -34,13 +43,6 @@
 
 
     if($email && $name && $phone){
-        $db = mysqli_connect('mysql100.1gb.ru', 'gb_magic_wsms', 'aceacz6ztyu', 'gb_magic_wsms');
-        if(!$db){
-            echo "Ошибка: Невозможно установить соединение с MySQL." . PHP_EOL;
-            echo "Код ошибки errno: " . mysqli_connect_errno() . PHP_EOL;
-            echo "Текст ошибки error: " . mysqli_connect_error() . PHP_EOL;
-        }
-        mysqli_query($db, "SET NAMES 'utf8'");         //Установка кодировки данных из базы.
 
         $time = time();
 
